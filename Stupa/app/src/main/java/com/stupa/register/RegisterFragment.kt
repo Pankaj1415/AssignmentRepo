@@ -144,11 +144,6 @@ class RegisterFragment : BaseFragment() {
         NavHostFragment.findNavController(this).navigate(action)
 
     }
-//        binding.countryCode.setOnCountryChangeListener(object :OnCountryChangeListener{
-//            override fun onCountrySelected() {
-//
-//            }
-//
-//        })
+
 
 }

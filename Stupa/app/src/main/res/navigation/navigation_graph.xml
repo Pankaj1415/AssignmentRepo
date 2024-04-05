@@ -24,7 +24,7 @@
         <action
             android:id="@+id/action_loginFragment_to_userDetailsFragment"
             app:destination="@id/userDetailsFragment"
-            app:popUpToInclusive="true"
+
 
             />
         <action
@@ -39,6 +39,11 @@
         android:label="User Details"
         tools:layout="@layout/user_details_fragment" >
 
+        <action
+            android:id="@+id/action_userDetailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment"/>
     </fragment>
 
 </navigation>

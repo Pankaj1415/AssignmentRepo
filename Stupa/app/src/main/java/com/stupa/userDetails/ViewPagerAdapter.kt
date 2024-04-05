@@ -24,15 +24,4 @@ class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
        }
 
         }
-        // Return a NEW fragment instance in createFragment(int).
-//         fragment = UserDetailsListFragment()
-
-
     }
-
-//    fragment.arguments = Bundle().apply
-//    {
-        // The object is just an integer.
-//            putInt(ARG_OBJECT, position + 1)
-//    }
-

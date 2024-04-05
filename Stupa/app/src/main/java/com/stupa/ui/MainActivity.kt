@@ -1,6 +1,9 @@
 package com.stupa.ui
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -12,6 +15,7 @@ import com.stupa.R
 import com.stupa.base.BaseActivity
 import com.stupa.constants.Constants
 import com.stupa.databinding.ActivityMainBinding
+import com.stupa.userDetails.UserDetailsFragmentDirections
 import com.stupa.util.visibilityGone
 import com.stupa.util.visible
 
@@ -22,14 +26,18 @@ class MainActivity : BaseActivity() {
     private lateinit var navGraph: NavGraph
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // adding onbackpressed callback listener.
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(binding.toolbar)
 
 
         val navHost = supportFragmentManager.findFragmentById(R.id.myNavHostFragment) as NavHost
-
         navController = navHost.navController
 
         val graphInflater = navHost.navController.navInflater
@@ -42,7 +50,6 @@ class MainActivity : BaseActivity() {
             R.id.userDetailsFragment
         }
         navGraph.setStartDestination(destination)
-
         navHost.navController.graph = navGraph
         setupActionBarWithNavController(navController)
 
@@ -55,10 +62,37 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.title) {
+            getString(R.string.logout) -> {
+                sharedPreference.clearPreference()
+                val nav = UserDetailsFragmentDirections.actionUserDetailsFragmentToLoginFragment()
+                navController.navigate(nav)
+                item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+            }
+            else -> {
+                item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
 
     }
 
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (navController.currentDestination!!.id == R.id.loginFragment) {
+                finish()
+            }
+        }
+    }
 
 }

@@ -14,7 +14,6 @@ import org.koin.android.ext.android.inject
 open class BaseActivity : AppCompatActivity(), View.OnClickListener {
 
     val sharedPreference: SharedPreference by inject()
-//    val connectionManager: ConnectionManager by inject()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

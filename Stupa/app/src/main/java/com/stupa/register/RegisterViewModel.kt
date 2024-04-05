@@ -25,7 +25,6 @@ class RegisterViewModel(private val repository: RegisterRepository,
     }
 
 
-    private var userdata: String? = null
 
     var userDetailsLiveData = MutableLiveData<Array<RegisterEntity>>()
 
@@ -130,7 +129,6 @@ class RegisterViewModel(private val repository: RegisterRepository,
                     val password = inputPassword.value!!.trim()
                     Log.i("MYTAG", "insidi Sumbit")
                     insert(RegisterEntity(0, name, countryCode, phone, email, password))
-                    sharedPreference.putString(Constants.USER_NAME,email)
                     inputName.value = null
                     inputCountryCode = ""
                     inputPhone.value = null
@@ -183,10 +181,6 @@ class RegisterViewModel(private val repository: RegisterRepository,
     private fun insert(user: RegisterEntity): Job = viewModelScope.launch {
         repository.insert(user)
     }
-
-//    fun clearALl():Job = viewModelScope.launch {
-//        repository.deleteAll()
-//    }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 

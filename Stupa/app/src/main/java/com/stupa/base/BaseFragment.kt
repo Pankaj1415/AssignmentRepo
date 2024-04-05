@@ -11,7 +11,6 @@ import org.koin.android.ext.android.inject
 open class BaseFragment : Fragment(), View.OnClickListener {
 
     val sharedPreference: SharedPreference by inject()
-//    val connectionManager: ConnectionManager by inject()
 
     fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()

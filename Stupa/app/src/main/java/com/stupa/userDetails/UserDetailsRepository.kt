@@ -4,13 +4,6 @@ import androidx.lifecycle.LiveData
 import com.stupa.db.RegisterDao
 import com.stupa.db.RegisterEntity
 
-class UserDetailsRepository(private val dao: RegisterDao) {
-
+class UserDetailsRepository(dao: RegisterDao) {
     val users = dao.getAllUsers()
-    suspend fun getAllUsers() : LiveData<List<RegisterEntity>> {
-        return dao.getAllUsers()
-    }
-
-
-
 }

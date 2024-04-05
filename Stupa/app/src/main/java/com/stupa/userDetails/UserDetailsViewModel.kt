@@ -10,29 +10,5 @@ import com.stupa.db.RegisterRepository
 
 class UserDetailsViewModel (private val repository: UserDetailsRepository, application: Application):AndroidViewModel(application){
 
-
     val users = repository.users
-
-
-//    private var _usersList = MutableLiveData<List<RegisterEntity>>()
-
-//    var userList  = LiveData<List<RegisterEntity>>()
-//        get() = _usersList
-
-    private val _navigateto = MutableLiveData<Boolean>()
-
-    val navigateto: LiveData<Boolean>
-        get() = _navigateto
-
-    fun doneNavigating(){
-        _navigateto.value = false
-    }
-
-    fun backButtonclicked(){
-        _navigateto.value = true
-    }
-    suspend fun getAllUsers(){
-//        userList =  repository.getAllUsers()
-    }
-
 }
