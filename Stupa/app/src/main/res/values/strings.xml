@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Stupa</string>
+
+    <string name="submitButton">Register</string>
+    <string name="List_of_Users_text">List Of Registered Users</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="PasswordText">Password:</string>
+    <string name="PasswordTextFiels">Enter Password</string>
+    <string name="UserNameTextView">User Name:</string>
+    <string name="UsernameTextField">Enter User Name</string>
+    <string name="backButton">Back</string>
+    <string name="Login_text">Login</string>
+    <string name="Login_button">Login</string>
+    <string name="signupText">Register User!</string>
+    <string name="error_email_already_exits">Email Already exits</string>
+    <string name="error_please_enter_your_password">Please enter your password</string>
+    <string name="error_please_enter_your_name">Please enter your name</string>
+    <string name="error_please_enter_your_phone_number">Please enter your phone number</string>
+    <string name="error_please_enter_your_phone_number_length">Please enter valid phone number</string>
+    <string name="error_please_enter_your_email">Please enter your email</string>
+    <string name="error_please_enter_your_valid_email">Please enter your Valid email</string>
+    <string name="error_user_does_not_exist">User doesn\'t exist,please Register!</string>
+    <string name="error_please_check_your_password">Please check your Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
