@@ -3,47 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/loginFragment"
- >
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.stupa.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/navigation_graph"/>
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.stupa.register.RegisterFragment"
-        android:label="Register"
+        android:label="@string/register"
         tools:layout="@layout/register_home_fragment" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@+id/loginFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment"/>
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.stupa.login.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_userDetailsFragment"
-            app:destination="@id/userDetailsFragment"
-
-
-            />
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment"
-
-            />
-    </fragment>
+        android:id="@+id/userDetailsListFragment"
+        android:name="com.stupa.userDetails.UserDetailsListFragment"
+        android:label="UserDetailsListFragment" />
     <fragment
         android:id="@+id/userDetailsFragment"
         android:name="com.stupa.userDetails.UserDetailsFragment"
-        android:label="User Details"
+        android:label="@string/user_details"
         tools:layout="@layout/user_details_fragment" >
-
         <action
             android:id="@+id/action_userDetailsFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpToInclusive="true"
-            app:popUpTo="@id/loginFragment"/>
+            app:popUpTo="@id/navigation_graph"/>
     </fragment>
-
 </navigation>

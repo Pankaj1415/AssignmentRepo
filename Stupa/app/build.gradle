@@ -41,10 +41,7 @@ android {
 dependencies {
 
     def koin_version = "3.4.2"
-    def retrofit_version = "2.9.0"
     def room_version = "2.6.1"
-    def nav_version = "2.7.5"
-    def lifecycle_version = "2.7.0"
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -59,11 +56,6 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation libs.koin.android
 
-    // Retrofit and GSON
-    implementation libs.retrofit
-    implementation libs.converter.gson
-    implementation libs.converter.scalars
-    implementation(libs.logging.interceptor)
 
 
     implementation libs.androidx.room.runtime

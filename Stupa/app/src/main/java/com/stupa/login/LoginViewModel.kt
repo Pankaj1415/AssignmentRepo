@@ -91,7 +91,7 @@ class LoginViewModel(private val repository: RegisterRepository,
                         inputPassword.value = null
 
                         _navigatetoUserDetails.value = true
-                        sharedPreference.putString(Constants.USER_NAME,usersNames.name)
+                        sharedPreference.putString(Constants.USER_NAME,usersNames.email)
                     } else {
                         _errorToastInvalidPassword.value = true
                     }

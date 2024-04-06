@@ -42,7 +42,7 @@ class RegisterViewModel(private val repository: RegisterRepository,
 
 
     @Bindable
-    val inputPassword = MutableLiveData<String?>()
+    val inputPassword = MutableLiveData<String>()
 
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
@@ -110,7 +110,7 @@ class RegisterViewModel(private val repository: RegisterRepository,
         } else if (!inputEmail.value!!.isValidEmail()) {
             _errorToastUsernameInvalid.value = true
         }
-        else if (inputPassword.value.toString().trim().isEmpty()) {
+        else if (inputPassword.value?.trim().isNullOrEmpty()) {
             _errorToastPassword.value = true
         } else {
             uiScope.launch {
@@ -126,7 +126,7 @@ class RegisterViewModel(private val repository: RegisterRepository,
                     val countryCode = inputCountryCode
                     val phone = inputPhone.value!!
                     val email = inputEmail.value!!
-                    val password = inputPassword.value!!.trim()
+                    val password = inputPassword.value.toString().trim()
                     Log.i("MYTAG", "insidi Sumbit")
                     insert(RegisterEntity(0, name, countryCode, phone, email, password))
                     inputName.value = null

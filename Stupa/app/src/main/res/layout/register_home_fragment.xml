@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="@dimen/_8sdp"
-            android:text="Please Register User"
+            android:text="@string/tv_please_register_user"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -39,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_8sdp"
-            android:hint="Name"
+            android:hint="@string/name"
             android:layout_marginTop="@dimen/_8sdp"
             android:textColorHint="@color/purple"
             android:theme="@style/EditTextThemeOverlay"
@@ -87,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_8sdp"
-            android:hint="Phone"
+            android:hint="@string/phone"
             android:layout_marginTop="@dimen/_6sdp"
             android:textColorHint="@color/purple"
             android:theme="@style/EditTextThemeOverlay"
@@ -95,7 +95,6 @@
             app:errorTextAppearance="@style/ErrorTextAppearance"
             app:helperTextTextAppearance="@style/HelperTextAppearance"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toEndOf="@+id/countryCode"
             app:layout_constraintTop_toBottomOf="@id/edt_name_layout">
 
@@ -113,7 +112,7 @@
                 android:singleLine="true"
                 android:maxLength="10"
                 android:digits="0123456789"
-                android:inputType="textPhonetic"
+                android:inputType="phone"
                 android:text="@={myViewModel.inputPhone}"
                 android:textColorHighlight="@color/textColorHighlight" />
 
@@ -125,7 +124,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_8sdp"
-            android:hint="Email"
+            android:hint="@string/tv_email"
             android:textColorHint="@color/purple"
             android:theme="@style/EditTextThemeOverlay"
             app:boxStrokeColor="@color/purple"
@@ -158,7 +157,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_8sdp"
-            android:hint="Password"
+            android:hint="@string/tv_password"
             android:textColorHint="@color/purple"
             android:theme="@style/EditTextThemeOverlay"
             app:boxStrokeColor="@color/purple"

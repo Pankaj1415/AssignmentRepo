@@ -17,7 +17,7 @@
             android:id="@+id/iv_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stupa"
+            android:text="@string/stupa"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/black"
             android:textStyle="bold"

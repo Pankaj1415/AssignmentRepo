@@ -54,7 +54,7 @@ class UserDetailsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupBackPressListener()
+//        setupBackPressListener()
 
     }
 
