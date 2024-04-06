@@ -69,7 +69,6 @@ class LoginFragment : Fragment() {
         }
         loginViewModel.navigatetoUserDetails.observe(viewLifecycleOwner) { hasFinished ->
             if (hasFinished == true) {
-                Log.i("MYTAG", "insidi observe")
                 navigateUserDetails()
                 loginViewModel.doneNavigatingUserDetails()
             }
@@ -82,16 +81,14 @@ class LoginFragment : Fragment() {
         }
     }
     private fun displayUsersList() {
-        //pankaj
-        Log.i("MYTAG","insidisplayUsersList")
+        binding.edtEmail.text?.clear()
+        binding.edtPassword.text?.clear()
         val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
         NavHostFragment.findNavController(this).navigate(action)
 
     }
 
     private fun navigateUserDetails() {
-        //pankaj
-        Log.i("MYTAG","insidisplayUsersList")
         val action = LoginFragmentDirections.actionLoginFragmentToUserDetailsFragment()
         NavHostFragment.findNavController(this).navigate(action)
     }

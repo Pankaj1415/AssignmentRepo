@@ -140,7 +140,6 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun displayUsersList() {
-        //pankaj
         val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
         NavHostFragment.findNavController(this).navigate(action)
 

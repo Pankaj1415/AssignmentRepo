@@ -28,12 +28,8 @@ class MainActivity : BaseActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var navGraph: NavGraph
 
-    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // adding onbackpressed callback listener.
-//        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
@@ -45,8 +41,6 @@ class MainActivity : BaseActivity() {
         val navHost =
             supportFragmentManager.findFragmentById(R.id.myNavHostFragment) as NavHostFragment
         navController = navHost.navController
-        val a = navController.currentBackStack.value
-        Log.d("hsbdshbj", "onCreate: $a")
         val graphInflater = navController.navInflater
         navGraph = graphInflater.inflate(R.navigation.navigation_graph)
 
@@ -88,7 +82,7 @@ class MainActivity : BaseActivity() {
             }
         }
     }
-//
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
@@ -98,15 +92,5 @@ class MainActivity : BaseActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
 
     }
-
-//    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
-//        override fun handleOnBackPressed() {
-//            if (navController.currentDestination!!.id == R.id.loginFragment) {
-//                finish()
-//            }else{
-//              onBackPressedDispatcher.onBackPressed()
-//            }
-//        }
-//    }
 
 }

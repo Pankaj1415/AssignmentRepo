@@ -20,8 +20,6 @@ class LoginViewModel(private val repository: RegisterRepository,
                      private val sharedPreference: SharedPreference, application: Application) :
     AndroidViewModel(application), Observable {
 
-    //    val users = repository.users
-
     @Bindable
     val inputUsername = MutableLiveData<String?>()
 
@@ -116,25 +114,20 @@ class LoginViewModel(private val repository: RegisterRepository,
 
     fun doneToastErrorUsername() {
         _errorToastUsername.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
 
     fun doneToastErrorUsernameInvalid() {
         _errorToastUsernameInvalid.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
 
     fun doneToastInvalidPassword() {
         _errorToastInvalidPassword.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun doneToastUsernameNotExit() {
         _errorToastUsernameNotExit.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun doneToastPassword() {
         _errorToastPassword.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

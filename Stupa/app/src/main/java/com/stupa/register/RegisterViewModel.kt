@@ -95,7 +95,6 @@ class RegisterViewModel(private val repository: RegisterRepository,
 
     fun donetoastErrorUsernameInvalid() {
         _errorToastUsernameInvalid.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun registerSubmitButton() {
         if (inputName.value == null) {
@@ -115,25 +114,20 @@ class RegisterViewModel(private val repository: RegisterRepository,
         } else {
             uiScope.launch {
                 val usersNames = repository.getUserName(inputEmail.value!!)
-                Log.i("MYTAG", usersNames.toString() + "------------------")
                 if (usersNames != null) {
                     _errorToastUsername.value = true
-                    Log.i("MYTAG", "Inside if Not null")
                 } else {
-                    Log.i("MYTAG", userDetailsLiveData.value.toString() + "ASDFASDFASDFASDF")
-                    Log.i("MYTAG", "OK im in")
                     val name = inputName.value!!
                     val countryCode = inputCountryCode
                     val phone = inputPhone.value!!
                     val email = inputEmail.value!!
                     val password = inputPassword.value.toString().trim()
-                    Log.i("MYTAG", "insidi Sumbit")
                     insert(RegisterEntity(0, name, countryCode, phone, email, password))
                     inputName.value = null
                     inputCountryCode = ""
                     inputPhone.value = null
                     inputEmail.value = null
-                    inputPassword.value = null
+                    inputPassword.value = ""
                     _navigateto.value = true
                 }
             }
@@ -147,35 +141,28 @@ class RegisterViewModel(private val repository: RegisterRepository,
 
     fun doneNavigating() {
         _navigateto.value = false
-        Log.i("MYTAG", "Done navigating ")
     }
 
 
     fun doneToastName() {
         _errorToastName.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun doneToastPhone() {
         _errorToastPhone.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun doneToastPhoneLength() {
         _errorToastPhoneLength.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun doneToastEmail() {
         _errorToastEmail.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
     fun doneToastPassword() {
         _errorToastPassword.value = false
-        Log.i("MYTAG", "Done taoasting ")
     }
 
 
     fun donetoastUserName() {
         _errorToastUsername.value = false
-        Log.i("MYTAG", "Done taoasting  username")
     }
 
     private fun insert(user: RegisterEntity): Job = viewModelScope.launch {

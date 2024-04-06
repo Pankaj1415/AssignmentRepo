@@ -52,30 +52,10 @@ class UserDetailsFragment : BaseFragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-//        setupBackPressListener()
-
-    }
-
     private fun userDetailsViewModelObserver() {
         binding.myUserDetailsViewModel = userDetailsViewModel
         binding.lifecycleOwner = this
 
 
     }
-
-    private fun setupBackPressListener() {
-        this.requireView().isFocusableInTouchMode = true
-        this.requireView().requestFocus()
-        this.requireView().setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_BACK && event.action == KeyEvent.ACTION_UP) {
-                requireActivity().finish()
-                return@OnKeyListener true
-            }
-            false
-        })
-    }
-
-
 }

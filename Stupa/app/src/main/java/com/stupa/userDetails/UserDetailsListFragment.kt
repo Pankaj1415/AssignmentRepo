@@ -35,7 +35,6 @@ class UserDetailsListFragment : BaseFragment() {
         displayUsersList()
     }
     private fun displayUsersList() {
-        Log.i("MYTAG", "Inside ...UserDetails..Fragment")
         userDetailsViewModel.users.observe(viewLifecycleOwner) {
             binding.usersRecyclerView.adapter = MyRecycleViewAdapter(it)
         }
